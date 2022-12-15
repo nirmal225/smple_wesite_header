@@ -1,1 +1,95 @@
-<h1>hello</h1>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .side{
+            height: 100vh;
+            width: 100%;
+
+            display: grid;
+            place-items: center;
+
+            overflow: hidden;
+            position: absolute;
+        }
+        .side .title{
+            color: white;
+            font-family: "Rubik",sans-serif;
+            font-size: 8vw;
+            margin: 0px 15vw;
+            width: 70vw;
+        }
+
+        #left-side{
+            background-color: rgb(23, 52, 90);
+            z-index: 1;
+        }
+        #right-side{
+            background-color: rgb(218, 206, 40);
+            z-index: 2;
+        }
+
+        .side .fansy{
+            font-family: "Lobster",cursive;
+            font-size: 1.3em;
+            line-height: 0.8em;
+        }
+
+        #left-side .title{
+            color: white;
+        }
+
+        #right-side .title{
+            color: black;
+        }
+
+        #left-side .fansy{
+            color:  rgb(218, 206, 40);
+        }
+        
+        #right-side .fansy{
+            color:  rgb(23, 52, 90);
+        }
+
+        </style>
+        
+        <div id="left-side" class="side">
+            <h2 class="title">
+                Today is going to be 
+                <span class="fansy">
+                    awesome
+                </span>
+            </h2>
+        </div>
+        <div id="right-side" class="side">
+            <h2 class="title">
+                Today is going to be 
+                <span class="fansy">
+                    wonderful
+                </span>
+            </h2>
+        </div>
+
+        <script>
+            const left = document.getElementById("right-side")
+            const handlEvent = e =>{
+                const position = e.clientX/window.innerWidth*100
+                left.style.width = `${position}%`
+            }
+
+            document.onmousemove = e =>handlEvent(e)
+
+            document.ontouchmove = e =>handlEvent(e.touches[0])
+        </script>
+</body>
+</html>
